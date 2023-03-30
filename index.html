@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>My Simple One Page Website</title>
+	<style>
+		/* Add your CSS styles here */
+		body {
+			margin: 0 auto;
+		}
+		h1 {
+			text-align: center;
+			font-size: 36px;
+			font-weight: bold;
+		}
+
+		p {
+			text-align: center;
+			font-size: 18px;
+		}
+
+		.logo {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100px;
+			height: 100px;
+			background-size: cover;
+			margin: 10px;
+			z-index: 2;
+		}
+
+		nav {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 150px;
+			background-color: darkgray;
+			z-index: 1;
+		}
+
+		nav a {
+			display: block;
+			padding: 10px 20px;
+			text-decoration: none;
+			color: black;
+			font-weight: bold;
+		}
+
+		section {
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-size: cover;
+			background-position: center;
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<div class="logo"></div>
+		<nav>
+			<a href="#section1">Section 1</a>
+			<a href="#section2">Section 2</a>
+			<a href="#section3">Section 3</a>
+		</nav>
+	</header>
+	<section id="section1"></section>
+	<section id="section2"></section>
+	<section id="section3"></section>
+	<!-- Add your JavaScript code here -->
+	<script>
+
+		const header = document.querySelector('nav');
+		const logo = document.querySelector('.logo');
+
+		// Add smooth scrolling to all links
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', function (e) {
+				e.preventDefault();
+
+				document.querySelector(this.getAttribute('href')).scrollIntoView({
+					behavior: 'smooth'
+				});
+			});
+		});
+
+		// Fetch random image from Unsplash API and set as background for each section
+		const sections = document.querySelectorAll('section');
+		sections.forEach(section => {
+			fetch('https://source.unsplash.com/random/1920x1080')
+				.then(response => {
+					section.style.backgroundImage = `url(${response.url})`;
+				})
+				.catch(error => {
+					console.error(error);
+				});
+		});
+
+		// Fetch random image from Unsplash API and set as background for the logo
+		fetch('https://source.unsplash.com/random/50x50')
+			.then(response => {
+				logo.style.backgroundImage = `url(${response.url})`;
+			})
+			.catch(error => {
+				console.error(error);
+			});
+
+		// Add scroll event listener to shrink header and logo
+		// Define the initial height of the header and logo
+		const initialHeaderHeight = header.offsetHeight;
+		const initialLogoHeight = logo.offsetHeight;
+		const initialLogoWidth = logo.offsetWidth;
+
+		// Define the amount of scroll needed to fully shrink the header and logo
+		const scrollThreshold = initialHeaderHeight / 50;
+
+		// Listen for the scroll event on the window object
+		window.addEventListener('scroll', () => {
+			// Calculate the current scroll position
+			const currentScroll = window.scrollY;
+
+			// Calculate the new height of the header and logo
+			const newHeaderHeight = Math.max(initialHeaderHeight - currentScroll, initialHeaderHeight / 2);
+			const newLogoHeight = Math.max(initialLogoHeight - currentScroll, initialLogoHeight / 2);
+			const newLogoWidth = Math.max(initialLogoWidth - currentScroll, initialLogoWidth / 2);
+
+			// Set the new height of the header and logo
+			header.style.height = `${newHeaderHeight}px`;
+			logo.style.height = `${newLogoHeight}px`;
+			logo.style.width = `${newLogoWidth}px`;
+		});
+	</script>
+</body>
+
+</html>
