@@ -502,9 +502,9 @@ figure.effect-julia:hover p {
     width:100%;
 }
 
-.tm-footer-right {
-    text-align: right;
-}
+/* .tm-footer-right { */
+    /* text-align: right; */
+/* } */
 
 @media (min-width: 992px)
 {
