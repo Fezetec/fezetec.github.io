@@ -514,6 +514,12 @@ figure.effect-julia:hover p {
     /* text-align: right; */
 /* } */
 
+/* More custom */ 
+.pebble {
+	font-style: italic;
+}
+/* */
+
 @media (min-width: 992px)
 {
     .navbar-expand-lg .navbar-collapse {
