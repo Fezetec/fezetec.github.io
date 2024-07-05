@@ -1271,7 +1271,6 @@ only screen and (min-width: 768px) and (max-width: 991px),
 .footer-area {
   background-position: top center;
   position: relative;
-  z-index: 5;
 }
 
 .footer-area::before {
