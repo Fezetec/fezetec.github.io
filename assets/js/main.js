@@ -19,10 +19,10 @@
 
     if (window.pageYOffset > sticky) {
       header_navbar.classList.add("sticky");
-      logo.src = "assets/images/logo/quicklog-black.svg";
+      logo.src = "assets/images/logo/alvar-logo-black.svg";
     } else {
       header_navbar.classList.remove("sticky");
-      logo.src = "assets/images/logo/quicklog-white.svg";
+      logo.src = "assets/images/logo/alvar-logo-white.svg";
     }
 
     // show or hide the back-top-top button
