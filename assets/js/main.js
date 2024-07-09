@@ -93,7 +93,7 @@
 
   // ========= glightbox
   const myGallery = GLightbox({
-    href: "https://www.youtube.com/watch?v=WH1A6aFu0RM",
+    href: "https://www.youtube.com/watch?v=CFIyr2A_Db0",
     type: "video",
     source: "youtube", //vimeo, youtube or local
     width: 900,
