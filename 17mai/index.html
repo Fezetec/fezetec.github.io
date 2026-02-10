@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17. mai Program 2024</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- jQuery er nødvendig for Turn.js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Turn.js for bla-effekt -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
+    
+    <style>
+        body {
+            background-color: #f3f4f6;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Georgia', serif;
+        }
+
+        #canvas {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        #magazine {
+            width: 800px;
+            height: 560px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        #magazine .turn-page {
+            background-color: white;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+
+        .page-shadow {
+            -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            -moz-box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+
+        /* Mobil-tilpasning */
+        @media (max-width: 850px) {
+            #magazine {
+                width: 350px !important;
+                height: 500px !important;
+            }
+        }
+
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            background-color: #ba0c2f; /* Norsk flaggrød */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-weight: bold;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: #00205b; /* Norsk flaggblå */
+        }
+    </style>
+</head>
+<body>
+
+    <header class="text-center py-8">
+        <h1 class="text-4xl font-bold text-[#ba0c2f]">Gratulerer med dagen!</h1>
+        <p class="text-gray-600 mt-2 italic">Bla i årets program for 17. mai</p>
+    </header>
+
+    <div id="canvas">
+        <div id="magazine">
+            <!-- Sidene genereres av JavaScript -->
+        </div>
+    </div>
+
+    <div class="controls">
+        <button class="btn" onclick="$('#magazine').turn('previous')">Forrige side</button>
+        <button class="btn" onclick="$('#magazine').turn('next')">Neste side</button>
+    </div>
+
+    <footer class="mt-auto py-6 text-gray-500 text-sm">
+        &copy; 2024 - Lokalt 17. mai utvalg
+    </footer>
+
+    <script>
+        // --- KONFIGURASJON ---
+        // Her bytter du ut URL-ene med dine egne .png-bilder
+        const pages = [
+            "https://placehold.co/800x1120/white/ba0c2f?text=Forside+17.+Mai\nProgram",
+            "https://placehold.co/800x1120/white/00205b?text=Side+2\nTaler+og+Hilsener",
+            "https://placehold.co/800x1120/white/ba0c2f?text=Side+3\nHovedtoget",
+            "https://placehold.co/800x1120/white/00205b?text=Side+4\nLeker+for+barna",
+            "https://placehold.co/800x1120/white/ba0c2f?text=Side+5\nMeny+i+kafeteria",
+            "https://placehold.co/800x1120/white/00205b?text=Bakside\nSponsorer"
+        ];
+
+        $(document).ready(function() {
+            const magazine = $('#magazine');
+
+            // Legg til sider i DOM
+            pages.forEach((src, index) => {
+                const pageDiv = $('<div />', {
+                    'class': 'turn-page',
+                    'css': { 'background-image': `url(${src})` }
+                });
+                magazine.append(pageDiv);
+            });
+
+            // Initialiser Turn.js
+            function initMagazine() {
+                const isMobile = window.innerWidth < 850;
+                
+                magazine.turn({
+                    width: isMobile ? 350 : 800,
+                    height: isMobile ? 500 : 560,
+                    autoCenter: true,
+                    acceleration: true,
+                    gradients: true,
+                    display: isMobile ? 'single' : 'double', // Enkeltsider på mobil, doble på PC
+                    when: {
+                        turning: function(event, page, view) {
+                            // Lydeffekt kan legges til her
+                        }
+                    }
+                });
+            }
+
+            initMagazine();
+
+            // Re-initialiser ved endring av skjermstørrelse
+            $(window).resize(function() {
+                location.reload(); // Enkel løsning for å håndtere layout-skifte
+            });
+
+            // Tastaturnavigasjon
+            $(window).bind('keydown', function(e) {
+                if (e.keyCode === 37) magazine.turn('previous');
+                else if (e.keyCode === 39) magazine.turn('next');
+            });
+        });
+    </script>
+</body>
+</html>
