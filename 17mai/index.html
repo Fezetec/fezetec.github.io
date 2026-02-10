@@ -103,24 +103,25 @@
 
     <script>
         // --- KONFIGURASJON ---
-        // Her bytter du ut URL-ene med dine egne .png-bilder
-        const pages = [
-            "https://placehold.co/800x1120/white/ba0c2f?text=Forside+17.+Mai\nProgram",
-            "https://placehold.co/800x1120/white/00205b?text=Side+2\nTaler+og+Hilsener",
-            "https://placehold.co/800x1120/white/ba0c2f?text=Side+3\nHovedtoget",
-            "https://placehold.co/800x1120/white/00205b?text=Side+4\nLeker+for+barna",
-            "https://placehold.co/800x1120/white/ba0c2f?text=Side+5\nMeny+i+kafeteria",
-            "https://placehold.co/800x1120/white/00205b?text=Bakside\nSponsorer"
+        // Liste over sider. Her kan du bruke dine egne PNG-filer senere.
+        const rawPages = [
+            "https://placehold.co/800x1120/ba0c2f/ffffff?text=Forside+17.+Mai\nProgram+2026",
+            "https://placehold.co/800x1120/ffffff/00205b?text=Side+2\nTaler+og+Hilsener",
+            "https://placehold.co/800x1120/ffffff/ba0c2f?text=Side+3\nHovedtoget",
+            "https://placehold.co/800x1120/ffffff/00205b?text=Side+4\nLeker+for+barna",
+            "https://placehold.co/800x1120/ffffff/ba0c2f?text=Side+5\nMeny+i+kafeteria",
+            "https://placehold.co/800x1120/00205b/ffffff?text=Bakside\nVel+heim!"
         ];
 
         $(document).ready(function() {
             const magazine = $('#magazine');
 
-            // Legg til sider i DOM
-            pages.forEach((src, index) => {
+            // Sikrer at spesialtegn i URL-en fungerer i alle visninger
+            rawPages.forEach((src) => {
+                const encodedSrc = src.replace(/\n/g, '%0A'); // Manuelt håndtere linjeskift for placehold.co
                 const pageDiv = $('<div />', {
                     'class': 'turn-page',
-                    'css': { 'background-image': `url(${src})` }
+                    'css': { 'background-image': `url("${encodedSrc}")` }
                 });
                 magazine.append(pageDiv);
             });
@@ -135,26 +136,32 @@
                     autoCenter: true,
                     acceleration: true,
                     gradients: true,
-                    display: isMobile ? 'single' : 'double', // Enkeltsider på mobil, doble på PC
-                    when: {
-                        turning: function(event, page, view) {
-                            // Lydeffekt kan legges til her
-                        }
-                    }
+                    elevation: 50,
+                    display: isMobile ? 'single' : 'double',
+                    duration: 1000
                 });
             }
 
-            initMagazine();
+            // Start programmet
+            setTimeout(initMagazine, 100);
 
-            // Re-initialiser ved endring av skjermstørrelse
-            $(window).resize(function() {
-                location.reload(); // Enkel løsning for å håndtere layout-skifte
-            });
+            // Knapper
+            $('#prevBtn').click(() => magazine.turn('previous'));
+            $('#nextBtn').click(() => magazine.turn('next'));
 
-            // Tastaturnavigasjon
+            // Tastatur
             $(window).bind('keydown', function(e) {
                 if (e.keyCode === 37) magazine.turn('previous');
                 else if (e.keyCode === 39) magazine.turn('next');
+            });
+
+            // Enkel resize-håndtering
+            let resizeTimer;
+            $(window).resize(function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    location.reload(); 
+                }, 500);
             });
         });
     </script>
