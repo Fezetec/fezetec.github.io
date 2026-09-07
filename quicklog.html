@@ -94,18 +94,6 @@
       padding: 60px 0 20px;
     }
 
-    .badge {
-      background-color: rgba(240, 87, 87, 0.15);
-      color: #FF8A8A;
-      padding: 6px 18px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      display: inline-block;
-      margin-bottom: 20px;
-      border: 1px solid rgba(240, 87, 87, 0.3);
-    }
-
     .hero h1 {
       font-size: 2.8rem;
       font-weight: 800;
@@ -210,7 +198,7 @@
 
     .phone-mockup {
       width: 330px;
-      height: 230px;
+      height: 500px;
       background: #0F172A;
       border-radius: 20px;
       border: 6px solid #334155;
@@ -231,13 +219,13 @@
       border-radius: 12px;
       text-align: left;
       font-size: 0.85rem;
-      transform: translateY(160%);
+      transform: translateY(-240%);
       transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       box-shadow: 0 10px 15px rgba(0,0,0,0.2);
     }
 
     .notification.active {
-      transform: translateY(0);
+      transform: translateY(-120%);
     }
 
     .notif-header {
@@ -319,16 +307,6 @@
       margin-bottom: 16px;
     }
 
-    .learn-more {
-      color: var(--accent-coral);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-
     /* PRISING (FRAME SOM PÅ BILDE) */
     .pricing-section {
       padding: 40px 0 80px;
@@ -385,7 +363,7 @@
       </header>
 
       <section class="hero">
-        <div class="badge">Sømløs tidsfangst for rådgivere</div>
+        <div class="btn-cyan">Sømløs tidsfangst for rådgivere</div>
         <h1>Slutt å gi bort gratis rådgivning på telefonen.</h1>
         <p>QuickLog fanger opp uregistrerte telefonsamtaler og Google Meet-møter i øyeblikket de avsluttes — slik at du får betalt for alt du faktisk jobber.</p>
 
@@ -434,10 +412,10 @@
             <span>Akkurat nå</span>
           </div>
           <div class="notif-title">Samtale avsluttet (14 min)</div>
-          <div>Vil du logge denne samtalen på Kunde X?</div>
+          <div>Vil du logge denne hendelsen?</div>
           <div class="notif-actions">
-            <button class="notif-btn" onclick="logCall()">+ 15 min rådgivning</button>
-            <button class="notif-btn" style="background:#64748B;" onclick="resetNotif()">Ignorer</button>
+            <button class="notif-btn" onclick="logCall()">Yes</button>
+            <button class="notif-btn" style="background:#64748B;" onclick="resetNotif()">No</button>
           </div>
         </div>
       </div>
@@ -451,19 +429,11 @@
         <div class="icon-wrapper">🛡️</div>
         <h3>Skiller jobb og privat</h3>
         <p>Sett opp faste arbeidstider eller hvitvask private kontakter med ett trykk. Du blir aldri forstyrret på fritiden.</p>
-        <a href="#" class="learn-more">Les mer &rsaquo;</a>
-      </div>
-      <div class="feature-card">
-        <div class="icon-wrapper">🎙️</div>
-        <h3>Stemmenotat i farten</h3>
-        <p>Dikter et 5-sekunders stemmenotat direkte mens du har saken ferskt i minnet. AI konverterer det til ren tekst.</p>
-        <a href="#" class="learn-more">Les mer &rsaquo;</a>
       </div>
       <div class="feature-card">
         <div class="icon-wrapper">📊</div>
         <h3>Eksport til regnskap</h3>
         <p>Eksporter dags- og månedsoppsummeringer til PDF eller Excel, klare for vedlegg i Fiken, Tripletex eller SendRegning.</p>
-        <a href="#" class="learn-more">Les mer &rsaquo;</a>
       </div>
     </section>
 
