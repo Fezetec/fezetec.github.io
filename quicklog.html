@@ -5,16 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QuickLog – Fang opp uregistrert rådgivningstid</title>
   <style>
-    /* CSS RESET & VARIABLES */
+    /* FARGEPALETT BASERT PÅ ALVAR-APPLICATIONS.COM */
     :root {
-      --bg-main: #0f172a;
-      --bg-card: #1e293b;
-      --accent: #6366f1;
-      --accent-hover: #4f46e5;
-      --success: #10b981;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --border: #334155;
+      --bg-hero: #024B56;           /* Dyp petroleumsblå fra toppen */
+      --bg-main: #FFFFFF;           /* Ren hvit hovedbakgrunn */
+      --bg-light: #F8FAFC;          /* Svak gråtone for kontrast */
+      --bg-card: #FFFFFF;           /* Hvit kortbakgrunn */
+      
+      --accent-cyan: #27B3D2;       /* Turkis/Cyan for primærknapper */
+      --accent-cyan-hover: #1FA2BF;
+      --accent-coral: #F05757;      /* Korallrød for aktive elementer/framheving */
+      --accent-coral-hover: #D94545;
+      
+      --text-dark: #1E293B;         /* Mørk kullsvart for overskrifter */
+      --text-muted: #64748B;        /* Midsvart for brødtekst */
+      --text-light: #FFFFFF;        /* Hvit tekst for mørk bakgrunn */
+      
+      --border-color: #E2E8F0;
+      --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
     }
 
     * {
@@ -26,9 +34,8 @@
 
     body {
       background-color: var(--bg-main);
-      color: var(--text-main);
+      color: var(--text-dark);
       line-height: 1.6;
-      padding-bottom: 80px;
     }
 
     .container {
@@ -37,124 +44,148 @@
       padding: 0 20px;
     }
 
-    /* HEADER */
+    /* TOP HERO MED MØRK BAKGRUNN */
+    .hero-wrapper {
+      background-color: var(--bg-hero);
+      color: var(--text-light);
+      position: relative;
+      padding-top: 20px;
+    }
+
     header {
-      padding: 24px 0;
+      padding: 16px 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid var(--border);
     }
 
     .logo {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       font-weight: 800;
-      color: var(--text-main);
+      color: var(--text-light);
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
 
-    .logo span {
-      color: var(--accent);
-    }
-
-    .btn {
-      background-color: var(--accent);
+    .btn-cyan {
+      background-color: var(--accent-cyan);
       color: white;
-      padding: 12px 24px;
+      padding: 12px 26px;
       border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
       border: none;
       cursor: pointer;
-      transition: background 0.2s ease, transform 0.1s ease;
+      transition: all 0.2s ease;
       display: inline-block;
+      box-shadow: 0 4px 12px rgba(39, 179, 210, 0.3);
     }
 
-    .btn:hover {
-      background-color: var(--accent-hover);
+    .btn-cyan:hover {
+      background-color: var(--accent-cyan-hover);
       transform: translateY(-1px);
     }
 
-    /* HERO SECTION */
+    /* HERO CONTENT */
     .hero {
       text-align: center;
-      padding: 80px 0 50px;
+      padding: 60px 0 20px;
     }
 
     .badge {
-      background-color: rgba(99, 102, 241, 0.15);
-      color: var(--accent);
-      padding: 6px 16px;
+      background-color: rgba(240, 87, 87, 0.15);
+      color: #FF8A8A;
+      padding: 6px 18px;
       border-radius: 20px;
       font-size: 0.85rem;
       font-weight: 600;
       display: inline-block;
       margin-bottom: 20px;
-      border: 1px solid rgba(99, 102, 241, 0.3);
+      border: 1px solid rgba(240, 87, 87, 0.3);
     }
 
     .hero h1 {
       font-size: 2.8rem;
       font-weight: 800;
-      line-height: 1.2;
+      line-height: 1.25;
       margin-bottom: 20px;
     }
 
     .hero p {
       font-size: 1.2rem;
-      color: var(--text-muted);
-      max-width: 680px;
-      margin: 0 auto 32px;
+      color: #CBD5E1;
+      max-width: 700px;
+      margin: 0 auto 30px;
     }
 
-    /* INTERACTIVE CALCULATOR */
+    /* BØLGE OVERGANG (WAVE SVG) */
+    .wave-divider {
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    .wave-divider svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 60px;
+    }
+
+    .wave-divider .shape-fill {
+      fill: var(--bg-main);
+    }
+
+    /* KALKULATOR KORT */
     .calculator-card {
       background: var(--bg-card);
-      border: 1px solid var(--border);
+      color: var(--text-dark);
       border-radius: 16px;
-      padding: 40px;
-      margin: 40px 0;
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+      padding: 36px;
+      margin: 20px 0 0;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      border: 1px solid var(--border-color);
     }
 
     .calc-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      gap: 32px;
     }
 
     @media (max-width: 768px) {
       .calc-grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 2rem; }
+      .hero h1 { font-size: 2.1rem; }
     }
 
     .control-group {
-      margin-bottom: 24px;
+      margin-bottom: 20px;
+      text-align: left;
     }
 
     .control-group label {
       display: flex;
       justify-content: space-between;
       font-weight: 600;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
     }
 
     .slider {
       width: 100%;
       height: 8px;
       border-radius: 5px;
-      background: var(--border);
+      background: var(--border-color);
       outline: none;
-      accent-color: var(--accent);
+      accent-color: var(--accent-cyan);
       cursor: pointer;
     }
 
     .result-box {
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.3);
+      background: #FFF5F5;
+      border: 1px solid rgba(240, 87, 87, 0.3);
       border-radius: 12px;
       padding: 24px;
       display: flex;
@@ -167,22 +198,22 @@
     .result-box .amount {
       font-size: 2.8rem;
       font-weight: 800;
-      color: var(--success);
-      margin: 10px 0;
+      color: var(--accent-coral);
+      margin: 6px 0;
     }
 
-    /* INTERACTIVE DEMO SIMULATION */
+    /* DEMO SIMULERING */
     .demo-section {
-      padding: 60px 0;
+      padding: 70px 0 40px;
       text-align: center;
     }
 
     .phone-mockup {
-      width: 320px;
-      height: 240px;
-      background: #000;
+      width: 330px;
+      height: 230px;
+      background: #0F172A;
       border-radius: 20px;
-      border: 4px solid #334155;
+      border: 6px solid #334155;
       margin: 30px auto;
       padding: 16px;
       position: relative;
@@ -190,18 +221,19 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      box-shadow: var(--card-shadow);
     }
 
     .notification {
-      background: rgba(255, 255, 255, 0.95);
-      color: #0f172a;
+      background: rgba(255, 255, 255, 0.98);
+      color: var(--text-dark);
       padding: 14px;
       border-radius: 12px;
       text-align: left;
       font-size: 0.85rem;
-      transform: translateY(150%);
+      transform: translateY(160%);
       transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 10px 15px rgba(0,0,0,0.2);
     }
 
     .notification.active {
@@ -213,7 +245,7 @@
       justify-content: space-between;
       font-weight: 700;
       font-size: 0.75rem;
-      color: #64748b;
+      color: var(--text-muted);
       margin-bottom: 4px;
     }
 
@@ -229,55 +261,94 @@
     }
 
     .notif-btn {
-      background: var(--accent);
+      background: var(--accent-cyan);
       color: white;
       border: none;
-      padding: 6px 10px;
+      padding: 6px 12px;
       border-radius: 6px;
       font-size: 0.75rem;
       font-weight: 600;
       cursor: pointer;
     }
 
-    /* FEATURES GRID */
+    /* FUNKSJONSKORT */
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 24px;
-      margin: 60px 0;
+      margin: 50px 0;
     }
 
     .feature-card {
       background: var(--bg-card);
-      border: 1px solid var(--border);
-      padding: 24px;
+      border: 1px solid var(--border-color);
+      padding: 30px;
       border-radius: 12px;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      text-align: left;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-cyan);
+    }
+
+    .icon-wrapper {
+      width: 48px;
+      height: 48px;
+      background: rgba(39, 179, 210, 0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+      color: var(--accent-cyan);
     }
 
     .feature-card h3 {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       margin-bottom: 8px;
+      color: var(--text-dark);
     }
 
     .feature-card p {
       color: var(--text-muted);
       font-size: 0.95rem;
+      margin-bottom: 16px;
     }
 
-    /* PRICING */
+    .learn-more {
+      color: var(--accent-coral);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* PRISING (FRAME SOM PÅ BILDE) */
+    .pricing-section {
+      padding: 40px 0 80px;
+    }
+
     .pricing-card {
       background: var(--bg-card);
-      border: 2px solid var(--accent);
+      border: 2px solid var(--accent-coral); /* Framhevet som "User-friendly" kortet på bildet */
       border-radius: 16px;
-      max-width: 450px;
+      max-width: 460px;
       margin: 0 auto;
       padding: 40px;
       text-align: center;
+      box-shadow: 0 15px 30px rgba(240, 87, 87, 0.08);
     }
 
     .price {
-      font-size: 3rem;
+      font-size: 3.2rem;
       font-weight: 800;
+      color: var(--text-dark);
       margin: 16px 0;
     }
 
@@ -289,54 +360,72 @@
 
     footer {
       text-align: center;
-      margin-top: 60px;
+      padding: 40px 0;
+      border-top: 1px solid var(--border-color);
       color: var(--text-muted);
       font-size: 0.85rem;
+      background: var(--bg-light);
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <!-- HEADER -->
-    <header>
-      <a href="#" class="logo">⚡ Quick<span>Log</span></a>
-      <a href="#demo" class="btn">Prøv gratis</a>
-    </header>
+  <!-- TOPP HERO MED TEAL BAKGRUNN -->
+  <div class="hero-wrapper">
+    <div class="container">
+      <header>
+        <a href="#" class="logo">
+          <!-- Alvar stil "A" logo ikon -->
+          <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 10 L90 90 L70 90 L50 45 L30 90 L10 90 Z" fill="#FFFFFF"/>
+          </svg>
+          QuickLog
+        </a>
+        <a href="#demo" class="btn-cyan">Prøv gratis</a>
+      </header>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="badge">Laget for frilansere & ENK</div>
-      <h1>Slutt å gi bort gratis rådgivning på telefonen.</h1>
-      <p>QuickLog fanger opp uregistrerte telefonsamtaler og Google Meet-møter i øyeblikket de avsluttes — slik at du får betalt for alt du faktisk jobber.</p>
+      <section class="hero">
+        <div class="badge">Sømløs tidsfangst for rådgivere</div>
+        <h1>Slutt å gi bort gratis rådgivning på telefonen.</h1>
+        <p>QuickLog fanger opp uregistrerte telefonsamtaler og Google Meet-møter i øyeblikket de avsluttes — slik at du får betalt for alt du faktisk jobber.</p>
 
-      <!-- KALKULATOR -->
-      <div class="calculator-card">
-        <h3 style="margin-bottom: 20px; text-align: left;">Beregn hvor mye du taper hver måned:</h3>
-        <div class="calc-grid">
-          <div>
-            <div class="control-group">
-              <label>Ufakturert samtaletid per dag: <span id="time-val">15 min</span></label>
-              <input type="range" id="time-slider" class="slider" min="5" max="60" step="5" value="15">
+        <!-- KALKULATOR KORT -->
+        <div class="calculator-card">
+          <h3 style="margin-bottom: 20px; font-weight: 700;">Hvor mye tidslekkasje har du i uken?</h3>
+          <div class="calc-grid">
+            <div>
+              <div class="control-group">
+                <label>Ufakturert samtaletid per dag: <span id="time-val">15 min</span></label>
+                <input type="range" id="time-slider" class="slider" min="5" max="60" step="5" value="15">
+              </div>
+              <div class="control-group">
+                <label>Din timepris: <span id="rate-val">1 200 kr</span></label>
+                <input type="range" id="rate-slider" class="slider" min="500" max="2500" step="50" value="1200">
+              </div>
             </div>
-            <div class="control-group">
-              <label>Din timepris: <span id="rate-val">1 200 kr</span></label>
-              <input type="range" id="rate-slider" class="slider" min="500" max="2500" step="50" value="1200">
+            <div class="result-box">
+              <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Estimert tapt inntekt</span>
+              <div class="amount" id="result-amount">6 300 kr</div>
+              <span style="font-size: 0.85rem; color: var(--text-muted);">hver eneste måned</span>
             </div>
-          </div>
-          <div class="result-box">
-            <span style="font-size: 0.9rem; color: var(--text-muted);">Estimert tapt inntekt:</span>
-            <div class="amount" id="result-amount">6 300 kr</div>
-            <span style="font-size: 0.85rem; color: var(--text-muted);">hver eneste måned</span>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
+    <!-- BØLGE-DIVIDER MELLOM TOPP OG BUNN -->
+    <div class="wave-divider">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.92,150.3,111.31,220.17,92.83,253.3,84.1,288.1,71.52,321.39,56.44Z" class="shape-fill"></path>
+      </svg>
+    </div>
+  </div>
+
+  <div class="container">
     <!-- INTERAKTIV DEMO -->
     <section class="demo-section" id="demo">
-      <h2>Slik fungerer det på 3 sekunder</h2>
-      <p style="color: var(--text-muted); margin-top: 8px;">Trykk på knappen under for å simulere hva som skjer når du legger på samtalen:</p>
+      <h2 style="font-size: 2rem; font-weight: 800;">Slik fungerer det på 3 sekunder</h2>
+      <p style="color: var(--text-muted); margin-top: 6px;">Trykk på knappen for å teste hvordan push-varselet oppfører seg på telefonen:</p>
 
       <div class="phone-mockup">
         <div class="notification" id="notif">
@@ -348,56 +437,63 @@
           <div>Vil du logge denne samtalen på Kunde X?</div>
           <div class="notif-actions">
             <button class="notif-btn" onclick="logCall()">+ 15 min rådgivning</button>
-            <button class="notif-btn" style="background:#64748b;" onclick="resetNotif()">Ignorer</button>
+            <button class="notif-btn" style="background:#64748B;" onclick="resetNotif()">Ignorer</button>
           </div>
         </div>
       </div>
 
-      <button class="btn" onclick="triggerSimulation()">Simuler endt samtale 📞</button>
+      <button class="btn-cyan" onclick="triggerSimulation()">Simuler endt samtale 📞</button>
     </section>
 
-    <!-- FUNKSJONER -->
+    <!-- FUNKSJONSKORT -->
     <section class="features-grid">
       <div class="feature-card">
-        <h3>🛡️ Skiller jobb og privat</h3>
-        <p>Sett opp faste arbeidstider eller hvitvask private kontakter med ett trykk. Du blir aldri forstyrret etter arbeidstid.</p>
+        <div class="icon-wrapper">🛡️</div>
+        <h3>Skiller jobb og privat</h3>
+        <p>Sett opp faste arbeidstider eller hvitvask private kontakter med ett trykk. Du blir aldri forstyrret på fritiden.</p>
+        <a href="#" class="learn-more">Les mer &rsaquo;</a>
       </div>
       <div class="feature-card">
-        <h3>🎙️ Stemmenotat i farten</h3>
-        <p>Dikter et 5-sekunders stemmenotat rett fra låsskjermen mens du går til bilen. AI-en gjør det om til ren tekst.</p>
+        <div class="icon-wrapper">🎙️</div>
+        <h3>Stemmenotat i farten</h3>
+        <p>Dikter et 5-sekunders stemmenotat direkte mens du har saken ferskt i minnet. AI konverterer det til ren tekst.</p>
+        <a href="#" class="learn-more">Les mer &rsaquo;</a>
       </div>
       <div class="feature-card">
-        <h3>📊 Klar for regnskapet</h3>
-        <p>Eksporter dags- eller månedsoppsummeringer til PDF/Excel, klare til å vedlegges fakturaen i Fiken eller Tripletex.</p>
+        <div class="icon-wrapper">📊</div>
+        <h3>Eksport til regnskap</h3>
+        <p>Eksporter dags- og månedsoppsummeringer til PDF eller Excel, klare for vedlegg i Fiken, Tripletex eller SendRegning.</p>
+        <a href="#" class="learn-more">Les mer &rsaquo;</a>
       </div>
     </section>
 
     <!-- PRISING -->
-    <section>
+    <section class="pricing-section">
       <div class="pricing-card">
-        <h3>QuickLog Pro</h3>
+        <h3 style="font-size: 1.5rem; font-weight: 800;">QuickLog Pro</h3>
         <p style="color: var(--text-muted); margin-top: 4px;">Alt du trenger for å fange tapt inntekt</p>
-        <div class="price">129 kr <span>/ måned (eks. mva)</span></div>
-        <ul style="text-align: left; margin: 20px 0; color: var(--text-muted); list-style: none;">
-          <li style="margin-bottom: 8px;">✓ Ubegrenset samtalelogging</li>
-          <li style="margin-bottom: 8px;">✓ Google Meet-integrasjon</li>
-          <li style="margin-bottom: 8px;">✓ PDF & Excel-eksport</li>
-          <li style="margin-bottom: 8px;">✓ Daglige fakturaoppsummeringer</li>
+        <div class="price">129 kr <span>/ mnd (eks. mva)</span></div>
+        <ul style="text-align: left; margin: 24px 0; color: var(--text-muted); list-style: none; line-height: 2;">
+          <li>✓ Ubegrenset samtalelogging</li>
+          <li>✓ Google Meet-integrasjon</li>
+          <li>✓ PDF & Excel-eksport</li>
+          <li>✓ Daglige fakturaoppsummeringer</li>
         </ul>
-        <button class="btn" style="width: 100%;">Start 14-dagers gratis prøveperiode</button>
-        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 12px;">Ingen kredittkort kreves • Kanseller når som helst</p>
+        <button class="btn-cyan" style="width: 100%;">Start 14-dagers gratis prøveperiode</button>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 12px;">Ingen bindingstid • Klar på under 2 minutter</p>
       </div>
     </section>
-
-    <!-- FOOTER -->
-    <footer>
-      <p>&copy; 2026 Alvar Applications. Alle rettigheter reservert. | QuickLog</p>
-    </footer>
   </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Alvar Applications. Alle rettigheter reservert. | QuickLog</p>
+    </div>
+  </footer>
 
   <!-- JAVASCRIPT FOR INTERAKTIVITET -->
   <script>
-    // Kalkulator Logikk
     const timeSlider = document.getElementById('time-slider');
     const rateSlider = document.getElementById('rate-slider');
     const timeVal = document.getElementById('time-val');
@@ -411,7 +507,6 @@
       timeVal.textContent = minsPerDay + ' min';
       rateVal.textContent = hourlyRate.toLocaleString('no-NO') + ' kr';
 
-      // 21 arbeidsdager i en måned
       const hoursPerMonth = (minsPerDay / 60) * 21;
       const monthlyLoss = Math.round(hoursPerMonth * hourlyRate);
 
@@ -421,7 +516,6 @@
     timeSlider.addEventListener('input', calculateLoss);
     rateSlider.addEventListener('input', calculateLoss);
 
-    // Simulering Logikk
     const notif = document.getElementById('notif');
 
     function triggerSimulation() {
