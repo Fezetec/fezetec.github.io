@@ -900,6 +900,7 @@ p {
 .about-area {
   position: relative;
   z-index: 5;
+  color: #fff;
 }
 
 .about-shape-1 {
