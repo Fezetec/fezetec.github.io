@@ -11,16 +11,17 @@
       --bg-main: #FFFFFF;           /* Ren hvit hovedbakgrunn */
       --bg-light: #024b56;          /* Dyp petroleumsblå for bunnen */
       --bg-card: #FFFFFF;           /* Hvit kortbakgrunn */
-      
+
       --accent-cyan: #27B3D2;       /* Turkis/Cyan for primærknapper */
       --accent-cyan-hover: #1FA2BF;
       --accent-coral: #F05757;      /* Korallrød for aktive elementer/framheving */
       --accent-coral-hover: #D94545;
-      
+
       --text-dark: #1E293B;         /* Mørk kullsvart for overskrifter */
-      --text-muted: #FFFFFF;        /* Hvit for bunnbanner */
+      --text-muted: #64748B;        /* Grå muted-tekst for lyse/hvite bakgrunner */
+      --text-on-dark-muted: #CBD5E1; /* Lys, dempet tekst for mørke bakgrunner */
       --text-light: #FFFFFF;        /* Hvit tekst for mørk bakgrunn */
-      
+
       --border-color: #E2E8F0;
       --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
     }
@@ -104,7 +105,7 @@
 
     .hero p {
       font-size: 1.2rem;
-      color: #CBD5E1;
+      color: var(--text-on-dark-muted);
       max-width: 700px;
       margin: 0 auto 30px;
     }
@@ -341,7 +342,7 @@
       text-align: center;
       padding: 40px 0;
       border-top: 1px solid var(--border-color);
-      color: var(--text-muted);
+      color: var(--text-on-dark-muted);
       font-size: 0.85rem;
       background: var(--bg-light);
     }
@@ -474,7 +475,7 @@
     function calculateLoss() {
       const minsPerDay = parseInt(timeSlider.value);
       const hourlyRate = parseInt(rateSlider.value);
-      
+
       timeVal.textContent = minsPerDay + ' min';
       rateVal.textContent = hourlyRate.toLocaleString('no-NO') + ' kr';
 
