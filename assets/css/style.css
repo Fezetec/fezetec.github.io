@@ -900,7 +900,6 @@ p {
 .about-area {
   position: relative;
   z-index: 5;
-  color: #fff;
 }
 
 .about-shape-1 {
@@ -947,6 +946,7 @@ p {
 
 .about-content .text {
   margin-top: 15px;
+  color: #fff;
 }
 
 .about-content .main-btn {
