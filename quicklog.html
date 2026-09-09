@@ -89,10 +89,49 @@
       transform: translateY(-1px);
     }
 
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--text-light);
+      padding: 12px 26px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.6);
+    }
+
     /* HERO CONTENT */
     .hero {
       text-align: center;
       padding: 60px 0 20px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background-color: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: var(--text-light);
+      padding: 8px 20px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      cursor: default;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
     }
 
     .hero h1 {
@@ -260,9 +299,17 @@
     /* FEATURE CARDS */
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 24px;
       margin: 50px 0;
+    }
+
+    @media (max-width: 1000px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 560px) {
+      .features-grid { grid-template-columns: 1fr; }
     }
 
     .feature-card {
@@ -361,9 +408,14 @@
       </header>
 
       <section class="hero">
-        <div class="btn-cyan">Capture every billable minute</div>
+        <div class="hero-badge">Capture every billable minute</div>
         <h1>Stop giving away free advice on the phone.</h1>
         <p>QuickLog automatically catches the calls and meetings you forgot to log — so less of your billable time slips through the cracks.</p>
+
+        <div class="hero-actions">
+          <a href="https://play.google.com/store/apps/details?id=com.alvarApplications.QuickLog" class="btn-cyan">Try for free</a>
+          <a href="#demo" class="btn-secondary">See how it works</a>
+        </div>
 
         <!-- CALCULATOR CARD -->
         <div class="calculator-card">
