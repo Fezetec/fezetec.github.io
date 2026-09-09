@@ -529,12 +529,12 @@
       const hourlyRate = parseInt(rateSlider.value);
 
       timeVal.textContent = minsPerDay + ' min';
-      rateVal.textContent = hourlyRate.toLocaleString('en-US') + ' kr';
+      rateVal.textContent = hourlyRate.toLocaleString('en-US');
 
       const hoursPerMonth = (minsPerDay / 60) * 21;
       const monthlyLoss = Math.round(hoursPerMonth * hourlyRate);
 
-      resultAmount.textContent = monthlyLoss.toLocaleString('en-US') + ' kr';
+      resultAmount.textContent = monthlyLoss.toLocaleString('en-US');
     }
 
     timeSlider.addEventListener('input', calculateLoss);
