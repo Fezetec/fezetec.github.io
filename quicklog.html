@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QuickLog – Capture Unregistered Consulting Time</title>
+  <title>QuickLog – Automatic Time Tracking for Consultants</title>
   <style>
     /* COLOR PALETTE BASED ON ALVAR-APPLICATIONS.COM */
     :root {
@@ -171,6 +171,10 @@
       outline: none;
       accent-color: var(--accent-cyan);
       cursor: pointer;
+    }
+
+    .calculator-assumption {
+      font-size: 14px;
     }
 
     .result-box {
@@ -351,32 +355,33 @@
           </svg>
           QuickLog
         </a>
-        <a href="#demo" class="btn-cyan">Try for free</a>
+        <a href="https://play.google.com/store/apps/details?id=com.alvarApplications.QuickLog" class="btn-cyan">Try for free</a>
       </header>
 
       <section class="hero">
-        <div class="btn-cyan">Seamless time capture for consultants</div>
+        <div class="btn-cyan">Capture every billable minute</div>
         <h1>Stop giving away free advice on the phone.</h1>
-        <p>QuickLog captures unregistered phone calls and Google Meet meetings the moment they end — so you get paid for all the time you actually work.</p>
+        <p>QuickLog automatically catches the calls and meetings you forgot to log — so less of your billable time slips through the cracks.</p>
 
         <!-- CALCULATOR CARD -->
         <div class="calculator-card">
-          <h3 style="margin-bottom: 20px; font-weight: 700;">How much time leakage do you have per week?</h3>
+          <h3 style="margin-bottom: 20px; font-weight: 700;">How much billable time could you be losing?</h3>
           <div class="calc-grid">
             <div>
               <div class="control-group">
-                <label>Unbilled call time per day: <span id="time-val">15 min</span></label>
+                <label>Unbilled call time per workday: <span id="time-val">15 min</span></label>
                 <input type="range" id="time-slider" class="slider" min="5" max="60" step="5" value="15">
               </div>
               <div class="control-group">
                 <label>Your hourly rate: <span id="rate-val">1,200</span></label>
                 <input type="range" id="rate-slider" class="slider" min="500" max="2500" step="50" value="1200">
               </div>
+              <div class="calculator-assumption">(Assuming 21 working days per month)</div>
             </div>
             <div class="result-box">
-              <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Estimated lost revenue</span>
+              <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Potential monthly revenue</span>
               <div class="amount" id="result-amount">6,300</div>
-              <span style="font-size: 0.85rem; color: var(--text-muted);">every single month</span>
+              <span style="font-size: 0.85rem; color: var(--text-muted);">you could be missing</span>
             </div>
           </div>
         </div>
@@ -416,18 +421,23 @@
     <section class="features-grid">
       <div class="feature-card">
         <div class="icon-wrapper">🛡️</div>
-        <h3>Separates work and personal</h3>
-        <p>Set fixed working hours or whitelist personal contacts with one tap. You'll never be disturbed during your time off.</p>
+        <h3>Keep work and personal separate</h3>
+        <p>Set your working hours and decide which contacts should be ignored. QuickLog helps keep personal calls out of your work log.</p>
       </div>
       <div class="feature-card">
         <div class="icon-wrapper">📊</div>
-        <h3>Export to accounting</h3>
-        <p>Export daily and monthly summaries to PDF or Excel, ready to attach in your preferred invoice program.</p>
+        <h3>Ready for invoicing</h3>
+        <p>Export daily and monthly summaries to PDF or Excel and use them as documentation when creating invoices.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon-wrapper">🏷️</div>
+        <h3>Organize your work</h3>
+        <p>Add your own tags to calls and meetings to quickly see which customers, projects or types of work your time was spent on.</p>
       </div>
       <div class="feature-card">
         <div class="icon-wrapper"></div>
-        <h3>Tag events</h3>
-        <p>Tag events with your own tags to better keep track of customers.</p>
+        <h3>Automatic meeting tracking</h3>
+        <p>Connect Google Calendar and let QuickLog detect your Google Meet meetings automatically. No manual timers, no extra steps.</p>
       </div>
     </section>
 
@@ -435,8 +445,8 @@
     <section class="pricing-section">
       <div class="pricing-card">
         <h3 style="font-size: 1.5rem; font-weight: 800;">QuickLog Pro</h3>
-        <p style="color: var(--text-muted); margin-top: 4px;">Everything you need to capture lost revenue</p>
-        <div class="price">14 kr <span>/ mo</span></div>
+        <p style="color: var(--text-muted); margin-top: 4px;">Everything you need to keep track of billable time</p>
+        <div class="price">14 kr <span>/ month</span></div>
         <ul style="text-align: left; margin: 24px 0; color: var(--text-muted); list-style: none; line-height: 2;">
           <li>✓ Unlimited call logging</li>
           <li>✓ Google Meet integration</li>
@@ -444,7 +454,7 @@
           <li>✓ Daily invoice summaries</li>
         </ul>
         <a href="https://play.google.com/store/apps/details?id=com.alvarApplications.QuickLog" class="btn-cyan" style="width: 100%;">Start your 1-month free trial</a>
-        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 12px;">No commitment • Ready in under 2 minutes</p>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 12px;">1 month free • Cancel anytime</p>
       </div>
     </section>
   </div>
