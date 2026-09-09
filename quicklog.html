@@ -227,16 +227,7 @@
     }
 
     .notification.active {
-      transform: translateY(-120%);
-    }
-
-    .notif-header {
-      display: flex;
-      justify-content: space-between;
-      font-weight: 700;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-bottom: 4px;
+      transform: translateY(-150%);
     }
 
     .notif-title {
@@ -251,14 +242,13 @@
     }
 
     .notif-btn {
-      background: var(--accent-cyan);
-      color: white;
+      background: transparent;
       border: none;
       padding: 6px 12px;
-      border-radius: 6px;
       font-size: 0.75rem;
       font-weight: 600;
       cursor: pointer;
+      text-transform: uppercase;
     }
 
     /* FUNKSJONSKORT */
@@ -409,13 +399,10 @@
 
       <div class="phone-mockup">
         <div class="notification" id="notif">
-          <div class="notif-header">
-            <span>QUICKLOG</span>
-            <span>Akkurat nå</span>
-          </div>
-          <div class="notif-title">Samtale avsluttet (14 min)</div>
-          <div>Vil du logge denne hendelsen?</div>
+          <div class="notif-title">New activity</div>
+          <div>Do you want QuickLog to log this?</div>
           <div class="notif-actions">
+            <button class="notif-btn" onclick="logCall()">Yes and add note</button>
             <button class="notif-btn" onclick="logCall()">Yes</button>
             <button class="notif-btn" style="background:#64748B;" onclick="resetNotif()">No</button>
           </div>
