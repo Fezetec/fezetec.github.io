@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QuickLog – Fang opp uregistrert rådgivningstid</title>
+  <title>QuickLog – Capture Unregistered Consulting Time</title>
   <style>
-    /* FARGEPALETT BASERT PÅ ALVAR-APPLICATIONS.COM */
+    /* COLOR PALETTE BASED ON ALVAR-APPLICATIONS.COM */
     :root {
-      --bg-hero: #024B56;           /* Dyp petroleumsblå fra toppen */
-      --bg-main: #FFFFFF;           /* Ren hvit hovedbakgrunn */
-      --bg-light: #024b56;          /* Dyp petroleumsblå for bunnen */
-      --bg-card: #FFFFFF;           /* Hvit kortbakgrunn */
+      --bg-hero: #024B56;           /* Deep petrol blue from the top */
+      --bg-main: #FFFFFF;           /* Pure white main background */
+      --bg-light: #024b56;          /* Deep petrol blue for the bottom */
+      --bg-card: #FFFFFF;           /* White card background */
 
-      --accent-cyan: #27B3D2;       /* Turkis/Cyan for primærknapper */
+      --accent-cyan: #27B3D2;       /* Turquoise/cyan for primary buttons */
       --accent-cyan-hover: #1FA2BF;
-      --accent-coral: #F05757;      /* Korallrød for aktive elementer/framheving */
+      --accent-coral: #F05757;      /* Coral red for active elements/highlights */
       --accent-coral-hover: #D94545;
 
-      --text-dark: #1E293B;         /* Mørk kullsvart for overskrifter */
-      --text-muted: #64748B;        /* Grå muted-tekst for lyse/hvite bakgrunner */
-      --text-on-dark-muted: #CBD5E1; /* Lys, dempet tekst for mørke bakgrunner */
-      --text-light: #FFFFFF;        /* Hvit tekst for mørk bakgrunn */
+      --text-dark: #1E293B;         /* Dark charcoal for headings */
+      --text-muted: #64748B;        /* Gray muted text for light/white backgrounds */
+      --text-on-dark-muted: #CBD5E1; /* Light, muted text for dark backgrounds */
+      --text-light: #FFFFFF;        /* White text for dark background */
 
       --border-color: #E2E8F0;
       --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
@@ -45,7 +45,7 @@
       padding: 0 20px;
     }
 
-    /* TOP HERO MED MØRK BAKGRUNN */
+    /* TOP HERO WITH DARK BACKGROUND */
     .hero-wrapper {
       background-color: var(--bg-hero);
       color: var(--text-light);
@@ -110,7 +110,7 @@
       margin: 0 auto 30px;
     }
 
-    /* BØLGE OVERGANG (WAVE SVG) */
+    /* WAVE TRANSITION (WAVE SVG) */
     .wave-divider {
       width: 100%;
       overflow: hidden;
@@ -128,7 +128,7 @@
       fill: var(--bg-main);
     }
 
-    /* KALKULATOR KORT */
+    /* CALCULATOR CARD */
     .calculator-card {
       background: var(--bg-card);
       color: var(--text-dark);
@@ -192,7 +192,7 @@
       margin: 6px 0;
     }
 
-    /* DEMO SIMULERING */
+    /* DEMO SIMULATION */
     .demo-section {
       padding: 70px 0 40px;
       text-align: center;
@@ -251,7 +251,7 @@
       text-transform: uppercase;
     }
 
-    /* FUNKSJONSKORT */
+    /* FEATURE CARDS */
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -299,14 +299,14 @@
       margin-bottom: 16px;
     }
 
-    /* PRISING (FRAME SOM PÅ BILDE) */
+    /* PRICING (FRAME AS IN IMAGE) */
     .pricing-section {
       padding: 40px 0 80px;
     }
 
     .pricing-card {
       background: var(--bg-card);
-      border: 2px solid var(--accent-coral); /* Framhevet som "User-friendly" kortet på bildet */
+      border: 2px solid var(--accent-coral); /* Highlighted as the "User-friendly" card in the image */
       border-radius: 16px;
       max-width: 460px;
       margin: 0 auto;
@@ -340,50 +340,50 @@
 </head>
 <body>
 
-  <!-- TOPP HERO MED TEAL BAKGRUNN -->
+  <!-- TOP HERO WITH TEAL BACKGROUND -->
   <div class="hero-wrapper">
     <div class="container">
       <header>
         <a href="#" class="logo">
-          <!-- Alvar stil "A" logo ikon -->
+          <!-- Alvar-style "A" logo icon -->
           <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M50 10 L90 90 L70 90 L50 45 L30 90 L10 90 Z" fill="#FFFFFF"/>
           </svg>
           QuickLog
         </a>
-        <a href="#demo" class="btn-cyan">Prøv gratis</a>
+        <a href="#demo" class="btn-cyan">Try for free</a>
       </header>
 
       <section class="hero">
-        <div class="btn-cyan">Sømløs tidsfangst for rådgivere</div>
-        <h1>Slutt å gi bort gratis rådgivning på telefonen.</h1>
-        <p>QuickLog fanger opp uregistrerte telefonsamtaler og Google Meet-møter i øyeblikket de avsluttes — slik at du får betalt for alt du faktisk jobber.</p>
+        <div class="btn-cyan">Seamless time capture for consultants</div>
+        <h1>Stop giving away free advice on the phone.</h1>
+        <p>QuickLog captures unregistered phone calls and Google Meet meetings the moment they end — so you get paid for all the time you actually work.</p>
 
-        <!-- KALKULATOR KORT -->
+        <!-- CALCULATOR CARD -->
         <div class="calculator-card">
-          <h3 style="margin-bottom: 20px; font-weight: 700;">Hvor mye tidslekkasje har du i uken?</h3>
+          <h3 style="margin-bottom: 20px; font-weight: 700;">How much time leakage do you have per week?</h3>
           <div class="calc-grid">
             <div>
               <div class="control-group">
-                <label>Ufakturert samtaletid per dag: <span id="time-val">15 min</span></label>
+                <label>Unbilled call time per day: <span id="time-val">15 min</span></label>
                 <input type="range" id="time-slider" class="slider" min="5" max="60" step="5" value="15">
               </div>
               <div class="control-group">
-                <label>Din timepris: <span id="rate-val">1 200 kr</span></label>
+                <label>Your hourly rate: <span id="rate-val">1,200</span></label>
                 <input type="range" id="rate-slider" class="slider" min="500" max="2500" step="50" value="1200">
               </div>
             </div>
             <div class="result-box">
-              <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Estimert tapt inntekt</span>
-              <div class="amount" id="result-amount">6 300 kr</div>
-              <span style="font-size: 0.85rem; color: var(--text-muted);">hver eneste måned</span>
+              <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Estimated lost revenue</span>
+              <div class="amount" id="result-amount">6,300</div>
+              <span style="font-size: 0.85rem; color: var(--text-muted);">every single month</span>
             </div>
           </div>
         </div>
       </section>
     </div>
 
-    <!-- BØLGE-DIVIDER MELLOM TOPP OG BUNN -->
+    <!-- WAVE DIVIDER BETWEEN TOP AND BOTTOM -->
     <div class="wave-divider">
       <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
         <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.92,150.3,111.31,220.17,92.83,253.3,84.1,288.1,71.52,321.39,56.44Z" class="shape-fill"></path>
@@ -392,10 +392,10 @@
   </div>
 
   <div class="container">
-    <!-- INTERAKTIV DEMO -->
+    <!-- INTERACTIVE DEMO -->
     <section class="demo-section" id="demo">
-      <h2 style="font-size: 2rem; font-weight: 800;">Slik fungerer det på 3 sekunder</h2>
-      <p style="color: var(--text-muted); margin-top: 6px;">Trykk på knappen for å teste hvordan push-varselet oppfører seg på telefonen:</p>
+      <h2 style="font-size: 2rem; font-weight: 800;">How it works in 3 seconds</h2>
+      <p style="color: var(--text-muted); margin-top: 6px;">Press the button to test how the push notification behaves on the phone:</p>
 
       <div class="phone-mockup">
         <div class="notification" id="notif">
@@ -409,37 +409,42 @@
         </div>
       </div>
 
-      <button class="btn-cyan" onclick="triggerSimulation()">Simuler endt samtale 📞</button>
+      <button class="btn-cyan" onclick="triggerSimulation()">Simulate ended activity</button>
     </section>
 
-    <!-- FUNKSJONSKORT -->
+    <!-- FEATURE CARDS -->
     <section class="features-grid">
       <div class="feature-card">
         <div class="icon-wrapper">🛡️</div>
-        <h3>Skiller jobb og privat</h3>
-        <p>Sett opp faste arbeidstider eller hvitvask private kontakter med ett trykk. Du blir aldri forstyrret på fritiden.</p>
+        <h3>Separates work and personal</h3>
+        <p>Set fixed working hours or whitelist personal contacts with one tap. You'll never be disturbed during your time off.</p>
       </div>
       <div class="feature-card">
         <div class="icon-wrapper">📊</div>
-        <h3>Eksport til regnskap</h3>
-        <p>Eksporter dags- og månedsoppsummeringer til PDF eller Excel, klare for vedlegg i Fiken, Tripletex eller SendRegning.</p>
+        <h3>Export to accounting</h3>
+        <p>Export daily and monthly summaries to PDF or Excel, ready to attach in your preferred invoice program.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon-wrapper"></div>
+        <h3>Tag events</h3>
+        <p>Tag events with your own tags to better keep track of customers.</p>
       </div>
     </section>
 
-    <!-- PRISING -->
+    <!-- PRICING -->
     <section class="pricing-section">
       <div class="pricing-card">
         <h3 style="font-size: 1.5rem; font-weight: 800;">QuickLog Pro</h3>
-        <p style="color: var(--text-muted); margin-top: 4px;">Alt du trenger for å fange tapt inntekt</p>
-        <div class="price">129 kr <span>/ mnd (eks. mva)</span></div>
+        <p style="color: var(--text-muted); margin-top: 4px;">Everything you need to capture lost revenue</p>
+        <div class="price">14 kr <span>/ mo</span></div>
         <ul style="text-align: left; margin: 24px 0; color: var(--text-muted); list-style: none; line-height: 2;">
-          <li>✓ Ubegrenset samtalelogging</li>
-          <li>✓ Google Meet-integrasjon</li>
-          <li>✓ PDF & Excel-eksport</li>
-          <li>✓ Daglige fakturaoppsummeringer</li>
+          <li>✓ Unlimited call logging</li>
+          <li>✓ Google Meet integration</li>
+          <li>✓ PDF & Excel export</li>
+          <li>✓ Daily invoice summaries</li>
         </ul>
-        <a href="https://play.google.com/store/apps/details?id=com.alvarApplications.QuickLog" class="btn-cyan" style="width: 100%;">Start 14-dagers gratis prøveperiode</a>
-        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 12px;">Ingen bindingstid • Klar på under 2 minutter</p>
+        <a href="https://play.google.com/store/apps/details?id=com.alvarApplications.QuickLog" class="btn-cyan" style="width: 100%;">Start your 1-month free trial</a>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 12px;">No commitment • Ready in under 2 minutes</p>
       </div>
     </section>
   </div>
@@ -447,11 +452,11 @@
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p>&copy; 2026 Alvar Applications. Alle rettigheter reservert. | QuickLog</p>
+      <p>&copy; 2026 Alvar Applications. All rights reserved. | QuickLog</p>
     </div>
   </footer>
 
-  <!-- JAVASCRIPT FOR INTERAKTIVITET -->
+  <!-- JAVASCRIPT FOR INTERACTIVITY -->
   <script>
     const timeSlider = document.getElementById('time-slider');
     const rateSlider = document.getElementById('rate-slider');
@@ -464,12 +469,12 @@
       const hourlyRate = parseInt(rateSlider.value);
 
       timeVal.textContent = minsPerDay + ' min';
-      rateVal.textContent = hourlyRate.toLocaleString('no-NO') + ' kr';
+      rateVal.textContent = hourlyRate.toLocaleString('en-US') + ' kr';
 
       const hoursPerMonth = (minsPerDay / 60) * 21;
       const monthlyLoss = Math.round(hoursPerMonth * hourlyRate);
 
-      resultAmount.textContent = monthlyLoss.toLocaleString('no-NO') + ' kr';
+      resultAmount.textContent = monthlyLoss.toLocaleString('en-US') + ' kr';
     }
 
     timeSlider.addEventListener('input', calculateLoss);
@@ -482,7 +487,7 @@
     }
 
     function logCall() {
-      alert('Suksess! 15 minutter er logget og lagt til i kveldsomsummeringen din.');
+      alert('Success! 15 minutes have been logged and added to your daily summary.');
       resetNotif();
     }
 
