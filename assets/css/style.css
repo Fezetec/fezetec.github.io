@@ -946,7 +946,6 @@ p {
 
 .about-content .text {
   margin-top: 15px;
-  color: #fff;
 }
 
 .about-content .main-btn {
@@ -961,6 +960,10 @@ p {
 
 .about-content .main-btn:hover {
   background-position: right center;
+}
+
+#company-about .text {
+	color: #fff;
 }
 
 /*===========================
